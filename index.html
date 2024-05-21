@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <title>النورس</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-ExtraLight.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-ExtraLight.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-ExtraLight.ttf") format("truetype");
+      font-weight: 200;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Light.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Light.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Light.ttf") format("truetype");
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Regular.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Regular.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-SemiBold.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-SemiBold.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-SemiBold.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Bold.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Bold.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Black.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Black.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Black.ttf") format("truetype");
+      font-weight: 900;
+      font-style: normal;
+    }
+    body {
+      font-family: "Cairo", sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #292b82;
+    }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .header-invoice {
+      padding: 30px 20px;
+    }
+    .logo {
+      width: 160px;
+      display: flex;
+      margin: 0 0 5px;
+    }
+    .logo img {
+      width: 160px;
+    }
+    .header-date {
+      display: flex;
+      align-items: end;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .date-info {
+      border-bottom: 1px dashed #292b82;
+      padding: 0 40px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .invoice-title {
+      background-color: #292b82 !important;
+      text-align: center;
+      height: 30px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 30px;
+      color: #fff !important;
+      margin-bottom: 10px;
+    }
+    .order-head {
+      font-weight: 700;
+      font-size: 20px;
+      text-align: center;
+      margin: 0 0 20px;
+    }
+    .order-cont {
+      padding: 0 100px;
+    }
+    .order-data {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 20px;
+    }
+    .order-item {
+      display: flex;
+      align-items: end;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      flex-wrap: wrap;
+    }
+    .order-item span {
+      width: max-content;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .order-info {
+      border-bottom: 1px dashed #292b82;
+      padding: 0 40px;
+      text-align: start;
+      min-width: 40%;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .order-item-cont .order-info {
+      min-width: 40px;
+    }
+    .order-item-cont .order-item {
+      flex-wrap: nowrap;
+    }
+    .table-text .order-info {
+      margin: 0;
+      display: inline-block;
+      min-width: 70px;
+    }
+    .table-text {
+      font-weight: 700;
+      font-size: 14px;
+      text-align: start;
+      margin: 0 0 10px;
+    }
+    .order-item-cont {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .line {
+      height: 2px;
+      width: 100%;
+      background-color: #292b82;
+      margin: 20px 0;
+    }
+    .dashed-line {
+      width: 100%;
+      border-bottom: 2px dashed #292b82;
+      margin: 40px 0 30px;
+    }
+    .signature-head {
+      font-weight: 700;
+      font-size: 18px;
+      margin: 10px auto 20px;
+      text-align: center;
+      position: relative;
+      width: max-content;
+    }
+    .signature-head::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #292b82;
+      width: 100%;
+      display: inline-block;
+    }
+    .signature-cont {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .signature-box {
+      width: 250px;
+      max-width: 100%;
+      border: 1px solid #292b82;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .signature-name {
+      border-bottom: 1px solid #292b82;
+    }
+    .signature-area {
+      height: 120px;
+    }
+    .invoice-box {
+      border: 1px solid #292b82;
+      padding: 20px 10px 120px;
+      margin-bottom: 20px;
+    }
+    .signature-text {
+      font-weight: 700;
+      font-size: 16px;
+      text-align: end;
+      padding-inline-end: 40px;
+    }
+    .invoice-head {
+      font-weight: 700;
+      text-align: center;
+      font-size: 16px;
+      margin: 0 0 10px;
+    }
+    .signatureـparant {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .signatureـparant .item {
+      text-align: center;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .invoice-footer {
+      position: relative;
+      padding-inline-end: 20px;
+      margin-bottom: 50px;
+    }
+    .invoice-code {
+      font-weight: 500;
+      font-size: 10px;
+      position: absolute;
+      top: 50%;
+      inset-inline-end: 0;
+      transform-origin: 0 0;
+      transform: rotate(-90deg) translateX(-50%);
+    }
+    @media print {
+      .body {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+      }
+      .table_group {
+        padding: 0 10px;
+        overflow: hidden;
+      }
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="header-invoice">
+        <figure class="logo">
+          <img src="bank.png" alt="bank-img" />
+        </figure>
+        <div class="header-date">
+          <span>التاريخ:</span>
+          <span class="date-info">22/02/2024</span>
+        </div>
+      </div>
+      <div class="invoice-title">اقرار تنازل عن بضاعة بيعا</div>
+      <div class="order-item">
+        <span>اقرا انا :</span>
+        <div class="order-info" style="width: 85%">العميل</div>
+      </div>
+      <div class="order-item">
+        <span>الرقم المدنى :</span>
+        <div class="order-info" style="width: 40%">99595959</div>
+      </div>
+      <div class="order-item">
+        <span> انى تنازلت عن البضاعة الموضح بيناتها فى المعاملة رقم :</span>
+        <div class="order-info" style="width: 40%">99595959</div>
+      </div>
+      <div class="order-item-cont">
+        <div class="order-item">
+          <span>والصادر بموجبها طلب الشراء رقم :</span>
+          <div class="order-info">wr007</div>
+        </div>
+        <div class="order-item">
+          <span>عن بنك وربة , للسيد /</span>
+          <div class="order-info">اسم العميل</div>
+        </div>
+      </div>
+      <div class="order-item">
+        <span>وذلك بمقابل ثمن قدره / :</span>
+        <div class="order-info">55559999999</div>
+        د.ك
+      </div>
+      <div class="order-item">
+        <span>(فقط </span>
+        <div class="order-info">55559999999</div>
+        دينار كويتى لاغير ) وهذا اقرار منى بذلك
+      </div>
+      <div class="signature-cont">
+        <div class="signature-box">
+          <div class="signature-name">توقيع العميل</div>
+          <div class="signature-area"></div>
+        </div>
+        <div class="signature-box">
+          <div class="signature-name">مصاقة موظف البنك</div>
+          <div class="signature-area"></div>
+        </div>
+      </div>
+      <div class="line"></div>
+      <p class="table-text">خاص باستعمال المشترى</p>
+      <div class="invoice-head">امر دفع مقابل شراء بضاعة</div>
+      <div class="invoice-box">
+        <div class="order-item">
+          <span>السادة/</span>
+          <div class="order-info">بنك وربة</div>
+          المحترمين
+        </div>
+        <div class="order-item">
+          <span>الموضوع : تحويل داخلى خصما من حسابنا رقم / </span>
+          <div class="order-info">59565644</div>
+        </div>
+        <div class="order-item-cont">
+          <div class="order-item">
+            <span
+              >يرجى التكرم بالعمل على تحويل مبلغ (<span> 5555555</span>
+              دك) فقط
+            </span>
+          </div>
+          <div class="order-item">
+            <div class="order-info"></div>
+            <span>دك لاغير</span>
+          </div>
+        </div>
+        <div class="order-item">
+          <span>حصما من حسابنا المذكور اعلاه الى حساب رقم / </span>
+          <div class="order-info"></div>
+        </div>
+        <div class="order-item-cont">
+          <div class="order-item">
+            <span>باسم /</span>
+            <div class="order-info"></div>
+          </div>
+          <div class="order-item">
+            <span> رقم مدنى /</span>
+            <div class="order-info">999999999999</div>
+          </div>
+        </div>
+        <div class="order-item-cont">
+          <div class="order-item">
+            <span>وذلك مقابل شراء البضاعه المذكورة فى طلب الشراء رقم :</span>
+            <div class="order-info"></div>
+          </div>
+          <div class="order-item">
+            <span>بتاريخ :</span>
+            <div class="order-info">22/02/2024</div>
+            الصادر من قبلكم
+          </div>
+        </div>
+        <div class="signatureـparant">
+          <div class="item">
+            <h2>اسم الشركة</h2>
+            <p>....................................</p>
+          </div>
+          <div class="item">
+            <h2>ختم الشركة</h2>
+            <p>....................................</p>
+          </div>
+          <div class="item">
+            <h2>توقيع المفوض</h2>
+            <p>....................................</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
